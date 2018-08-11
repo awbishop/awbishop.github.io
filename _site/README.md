@@ -1,27 +1,26 @@
-## Work Samples
-
 You can use the [editor on GitHub](https://github.com/awbishop/awbishop.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-### Markdown Test
+## Presentations
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+### Pitch deck
 
-```markdown
-Syntax highlighted code block
+Pitch deck for Verizon Enterprise Solutions and HR VPs...
 
-# Header 1
-## Header 2
-### Header 3
+[View presentation]()
 
-- Bulleted
-- List
+### Vision deck
 
-1. Numbered
-2. List
+Sharing the vision for the Learning Album...
 
-**Bold** and _Italic_ and `Code` text
+## Business Requirements documentation
+
+### Content feedback project brief
+
+Content feedback...
+
+##
 
 [Link](url) and ![Image](src)
 ```
