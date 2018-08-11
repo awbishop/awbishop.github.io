@@ -1,4 +1,5 @@
 title: Andrew Bishop
 description: This is my portfolio.
 theme: jekyll-theme-minimal
-is_project_page: false
+github:
+  is_project_page: false
