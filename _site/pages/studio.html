@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Learning Album Studio | Andrew Bishop</title>
+<meta name="generator" content="Jekyll v3.7.3" />
+<meta property="og:title" content="Work Samples" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Learning Album Studio application." />
+<meta property="og:description" content="About the Learning Album Studio application." />
+<link rel="canonical" href="http://localhost:4000/" />
+<meta property="og:url" content="http://localhost:4000/" />
+<meta property="og:site_name" content="Andrew Bishop" />
+<script type="application/ld+json">
+{"name":"Andrew Bishop","description":"Learning Album Studio application.","@type":"WebSite","url":"http://localhost:4000/","headline":"Learning Album","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=9e70367da05ff4677fb677517ab1db17bf42a985">
+    <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <a href="../index.html"><i class="fas fa-angle-left"></i>&nbsp;&nbsp;Back to portfolio</a>
+
+        <p><h1>Studio</h1></p>
+
+        <p><div style="position: relative; padding-bottom: 62.5%; height: 0;"><iframe src="https://www.useloom.com/embed/bb074a2736d3438aaf71ce64797e510c" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div></p>
+
+        <p>A brief video tour of the Studio application.</p>
+
+        <p>Designer mockups based on my wireframes:
+
+        <br>• <a href="../assets/docs/Studio-Publishing.pdf" target="_blank">Album Publishing</a>
+        <br>• <a href="../assets/docs/Studio-Updates.pdf" target="_blank">Album Updates</a></p>
+
+
+
+      </header>
+      <section>
+
+
+<h3 id="challenge">Business challenge</h3>
+
+<p>My team hand coded HTML content in the first two versions of the Learning Album Delivery application. As the platform grew in popularity, we couldn't keep up with demand. The albums were getting too big and the changes too frequent. I would have needed to hire an army of contractors just to keep pace, let alone grow the product.</p>
+
+<h3 id="solution">Our solution</h3>
+
+<p>I put together a business case to build a complementary application that would let instructional designers create and publish learning albums. Not only would it have to be dead simple for non-technical staff to author digital content, but the tool needed robust reuse and single-sourcing capabilities. We had to build our own content management system.</p>
+
+<p>In my previous role at Verizon, I was responsible for implementing an off-the-shelf learning content management system (LCMS). While that project did generate an overall positive business impact, the tool itself was too difficult and poorly designed to support our organization, and we retired it. But I was able to take those learnings and apply them to the new Learning Album LCMS.</p>
+
+<p>I hired a vendor to build the application, with myself operating as the product owner. We followed a fairly rigorous scrum process with two week sprints initiated by thorough sprint planning sessions followed by retrospectives at the end of each sprint. After 4 months, we had a fully functional LCMS that our L&D staff could use to manage their own learning albums. At that point, our team assumed development ownership of the application. </p>
+
+<h3 id="impact">Business impact</h3>
+
+<p>Within a year of launch, over 750 albums had been created. The reuse and single-sourcing capabilities in the LCMS alone saved Verizon $1 million per year. Instructional designers were able to create complex reuse models, in some cases building a "master" album that reused content into 30 different albums! Our appplication allowed a small handful of designers to maintain curricula for the entire customer service organization and its many sub-groups.</p>
+
+<h3 id="evolution">Looking forward</h3>
+
+<p>As with the <a href="la.html">Delivery application</a>, the business quickly outgrew what my team had built. Albums had been published 25K times (now nearly 40K), and the publish database table alone was pushing 100GB. This wasn't sustainable, and it was another major contributing factor in the decision to <a href="la.html#rebuild">rebuild the entire platform</a>. Our LCMS customers, some 200 instructional designers, were also eager for improvements. Years of providing end user support, conducting regular interviews, and attending countless team meetings helped us define the 3 or 4 major areas for improvement.</p>
+
+<p>The new LCMS was branded "Studio." The UI was aligned with the Delivery application, featuring a more visual and integrated authoring experience with functionality to help designers create more dynamic content. Just as importantly, the publishing workflow was made more robust with clearly defined stages.</p>
+
+<p><a href="../assets/img/publication_chain_concept.jpg" target="_blank"><img src="../assets/img/publication_chain_concept.jpg"></a></p>
+
+<p>Studio was built with similar technology as the legacy application (Ruby on Rails), but the front-end was built in React.js and the back-end employed a more service-based approach. The publication engine, for example, was built as a mini-app or service that integrated with Studio proper (the authoring app) via REST APIs. These same publication endpoints were used by the <a href="graphql.html">GraphQL API</a> to fetch data for display in the Delivery application. This api-driven approach increased efficiency and improved performance, ensuring that large publish database tables won't negatively impact our customers and the core authoring experience.</p>
+
+<hr>
+
+<p>For those interested, here is our technology stack for version 6 of the Learning Album platform:</p>
+
+<p>Ubuntu, Nginx, Docker 18+, Ruby 2.3/2.4, MySQL 5.7+, PostgreSQL 10+, Redis, Solr, ImageMagick, Passenger, Capistrano, AWS EC2, AWS RDS (MySQL and PostgreSQL), AWS Lambda, AWS S3, AWS SES, AWS SNS, AWS SQS, React.js, New Relic.</p>
+
+
+
+
+      </section>
+      <footer>
+
+
+      </footer>
+    </div>
+    <script src="/assets/js/scale.fix.js"></script>
+
+  </body>
+</html>

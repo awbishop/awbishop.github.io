@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Learning Analytics | Andrew Bishop</title>
+<meta name="generator" content="Jekyll v3.7.3" />
+<meta property="og:title" content="Work Samples" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Learning Analytics." />
+<meta property="og:description" content="About the Learning Album Analytics application." />
+<link rel="canonical" href="http://localhost:4000/" />
+<meta property="og:url" content="http://localhost:4000/" />
+<meta property="og:site_name" content="Andrew Bishop" />
+<script type="application/ld+json">
+{"name":"Andrew Bishop","description":"Learning Analytics application.","@type":"WebSite","url":"http://localhost:4000/","headline":"Learning Album","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=9e70367da05ff4677fb677517ab1db17bf42a985">
+    <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <a href="../index.html"><i class="fas fa-angle-left"></i>&nbsp;&nbsp;Back to portfolio</a>
+
+        <p><h1>Learning Analytics</h1></p>
+
+        <p><img src="../assets/img/composite3.png" /></p>
+
+        <p>Artifact quick links:
+
+        <br>• <a href="../assets/docs/LA-Dashboard-Authors.pdf" target="_blank">Dashboard for Authors wireframes</a>
+        <br>• <a href="../assets/docs/Dashboard-Denominator-Problem.pdf" target="_blank">Dashboard Denominator Problem</a>
+        <br>• <a href="../assets/img/stats-jtbd-mindmap.jpg" target="_blank">Jobs-to-be-Done mind map</a>
+        <br>• <a href="../assets/docs/Facilitator-Stats.pdf" target="_blank">Facilitator Stats  wireframes</a>
+      </p>
+
+
+
+      </header>
+      <section>
+
+
+<h3 id="project">Business challenge</h3>
+
+<p>Learning & Development teams have always been starved for meaningful data about their learning programs. The best they've usually been able to obtain are simple completion reports. There's often little to help them improve their learning content for future learners, let alone react in real time to learners already in progress.</p>
+
+<h3 id="project">Our solution</h3>
+
+<p>From the beginning, my goal with the Learning Album platform was to generate analytics that would help L&D staff make decisions to improve the outcomes of their learning programs. In 2014, I designed and launched a Dashboard application to augment the Delivery and LCMS applications already in place. Together, these three applications comprised an end-to-end digital platform that L&D could use to create, deliver, and track their learning programs.</p>
+
+<p>The first version of the Dashboard targeted facilitators and provided data about basic topic and knowledge check completions for all of the learners in their classes.</p>
+
+<p><a href="../assets/img/dashboard.png" target="_blank"><img src="../assets/img/dashboard.png"></a></p>
+
+<p>A dashboard like the one above was automatically built for every class in the Learning Album Delivery application. Facilitators didn't need to generate a report or download a csv file. They could simply click a button from within an album and launch the corresponding dashboard.</p>
+
+<h3 id="project">Towards a new Dashboard</h3>
+
+<p>While these dashboards were useful to the 1,600 facilitators who relied on them, they were only scratching the surface of what was possible (and they didn't look very dashboard-y). We were collecting all sorts of user data not included in the dashboards: what pages someone viewed, how long they spent on each page, if a page had interactions on it then how many did the user engage with. The challenge was figuring out a way to extract meaning from it all.</p>
+
+<p>I designed a new Dashboard application that would be targeted at the instructional designers who created the learning albums. This time, we would provide more aggregated summary data up front. We would also try and surface meaningful insights based on patterns in the data. Here's an image from one of my wireframes:</p>
+
+<p><a href="../assets/img/AUTHOR_DASHBOARD.png" target="_blank"><img src="../assets/img/AUTHOR_DASHBOARD.png"></a></p>
+
+<p>It took six months to build this version, but almost immediately it paid dividends. I ran a pilot with the Retail sales group, specifically looking at their new hire album. Nearly 17% of the pages in their album registered little to no learner engagement. This 17% accounted for 20 hours worth of training in a 3 week program. If learners weren't getting value out of that content, it could be improved or removed altogether. </p>
+
+<p>Unfortunately, this new Dashboard required a tremendous amount of near real-time data aggregation, and our approach was unsustainable. The data for each class and learner was changing too rapidly for us to simultaneously extract and transform it, at least using the standard relational database we already had in place. This was only complicated by the fact that an album could be re-published at any time, and each publish could feature a different schema as the content was changed. For a sample of the thorny problems we were dealing with, here's a write up I made at the time: </p>
+
+<p><a href="../assets/docs/Dashboard-Denominator-Problem.pdf" target="_blank"><i class="far fa-dizzy"></i>&nbsp;&nbsp;Dashboard Denominator Problem</a></p>
+
+<p>Due to these issues, this version of the Dashboard never got out of beta. But it provided us with critical learnings for the next version of our analytics application.</p>
+
+<h3 id="project">Stats</h3>
+
+<p>This time around, we built "Stats" as a separate service that injected visualized dashboards into every album in version 6 of the Delivery application. We implemented a time-series database (kdb+) with parallel processors to avoid the pre-aggregation of results required of a relational database. This allowed us to make changes to the various metrics calculated without re-importing the data, for example if an album is re-published and the schema changes.</p>
+
+<p><a id="jtbd"></a>Beyond rethinking the technical solution with my lead developer, I also spent a lot of personal time talking to facilitators about what they wanted to accomplish with learning analytics. After 10-15 interviews, the themes were pretty consistent and I was able to sketch out a basic mind map following the <a href="https://medium.com/@zbigniewgecis/8-things-to-use-in-jobs-to-be-done-framework-for-product-development-4ae7c6f3c30b" target="_blank">Jobs-to-be-Done framework</a>.</p>
+
+<p><a href="../assets/img/stats-jtbd-mindmap.jpg" target="_blank"><img src="../assets/img/stats-jtbd-mindmap.jpg"></a></p>
+
+<p>I used the mindmap to create requirements, user/job stories, and wireframes. Thinking about the metrics we wanted to provide at the end of a user's workflow actually caused us to rethink some of the core requirements of the Studio and Delivery applications. Specifically, we decided to simplify how we would demonstrate and measure learner comprehension and skill application. We introduced the notion of quizzes (comprehension) and assignments (application). Both would provide quantifiable measures that we could aggregate and report in Stats, but assignments in particular added a qualitative dimension by asking facilitators to rate learner submissions.</p>
+
+<p>We now had three solid measures that we could use to provide comprehensive stats on each class and individual learner. Here's a PDF set of wireframes I created based on my customer interviews and Jobs-to-be-Done mindmap:</p>
+
+<p><a href="../assets/docs/Facilitator-Stats.pdf" target="_blank"><i class="fas fa-drafting-compass"></i>&nbsp;&nbsp;Facilitator view of active class</a></p>
+
+<h3 id="project">What's next</h3>
+
+<p>In the short term, Stats views need to be created for all types of albums and user roles, including self-led albums that don't rely on classes with defined start and end dates, since people can join these albums at any time. Instead, we'll create dynamic cohorts and generate a cohort analysis chart (of sorts), kind of like this:</p>
+
+<p><a href="../assets/img/self-led-stats.png" target="_blank"><img src="../assets/img/self-led-stats.png"></a></p>
+
+<p>In the long term, we'll wrap our Stats data into the GraphQL API and make that available to trusted third-party applications, so they can query and fetch the data they want. For example, Verizon L&D uses Qlik to provide comprehensive dashboards detailing individual facilitator performance. These dashboards are used in annual performance reviews. Learning Album Stats data would help paint a complete picture in the Qlik dashboards and speak to facilitator performance at a much deeper level than what's captured today.</p>
+
+<p>The GraphQL API can also be used to align Learning Album Stats data with on the job employee performance. This has long been the holy grail in the L&D space, pairing learning data with actual business metrics to show what tangible impacts a training program had on performance. All of my work on learning analytics has brought Verizon to the cusp of achieving this aim. In 2019, I believe Verizon will achieve its goal of generating real-time learning-to-KPI data alignment for all content created in the Learning Album platform.</p>
+
+<hr>
+
+<p>Technology stack for the latest version of Learning Album Stats:</p>
+
+<p>Node.js 10+, MySQL 5.7+, PostgreSQL 10+, kdb 3.4 (w/ json.k and odbc.k), AWS EC2, AWS RDS (MySQL and PostgreSQL), GraphQL, React.js, D3.js, Recharts.org, New Relic.</p>
+
+
+
+
+      </section>
+      <footer>
+
+
+      </footer>
+    </div>
+    <script src="/assets/js/scale.fix.js"></script>
+
+  </body>
+</html>
