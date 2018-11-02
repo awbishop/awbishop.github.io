@@ -37,10 +37,10 @@
 
         <p>A brief video tour of the Studio application.</p>
 
-        <p>Designer mockups based on my wireframes:
+        <p>Artifacts:
 
-        <br>• <a href="../assets/docs/Studio-Publishing.pdf" target="_blank">Album Publishing</a>
-        <br>• <a href="../assets/docs/Studio-Updates.pdf" target="_blank">Album Updates</a></p>
+        <br>• <a href="../assets/docs/publish-studio.pdf" target="_blank">Album Publishing</a> (designer mockups)
+        <br>• <a href="../assets/docs/updates-studio.pdf" target="_blank">Album Updates</a> (designer mockups)</p>
 
 
 
@@ -58,21 +58,29 @@
 
 <p>In my previous role at Verizon, I was responsible for implementing an off-the-shelf learning content management system (LCMS). While that project did generate an overall positive business impact, the tool itself was too difficult and poorly designed to support our organization, and we retired it. But I was able to take those learnings and apply them to the new Learning Album LCMS.</p>
 
-<p>I hired a vendor to build the application, with myself operating as the product owner. We followed a fairly rigorous scrum process with two week sprints initiated by thorough sprint planning sessions followed by retrospectives at the end of each sprint. After 4 months, we had a fully functional LCMS that our L&D staff could use to manage their own learning albums. At that point, our team assumed development ownership of the application. </p>
+<p>I hired a vendor to build the application, with myself operating as the product owner. We followed a fairly rigorous scrum process with two week sprints initiated by thorough sprint planning sessions and capped by retrospectives at the end. After 4 months, we had a fully functional LCMS that our L&D staff could use to manage their own learning albums. At that point, our team assumed development ownership of the application. </p>
 
 <h3 id="impact">Business impact</h3>
 
-<p>Within a year of launch, over 750 albums had been created. The reuse and single-sourcing capabilities in the LCMS alone saved Verizon $1 million per year. Instructional designers were able to create complex reuse models, in some cases building a "master" album that reused content into 30 different albums! Our appplication allowed a small handful of designers to maintain curricula for the entire customer service organization and its many sub-groups.</p>
+<p>Within a year of launch, over 750 albums had been created. The reuse and single-sourcing capabilities in the LCMS alone saved Verizon $1 million per year. Instructional designers were able to create complex reuse models, in some cases building a "master" album that fed content into 30 different albums! Our application allowed a small handful of designers to maintain curricula for the entire customer service organization and its many sub-groups.</p>
 
 <h3 id="evolution">Looking forward</h3>
 
 <p>As with the <a href="la.html">Delivery application</a>, the business quickly outgrew what my team had built. Albums had been published 25K times (now nearly 40K), and the publish database table alone was pushing 100GB. This wasn't sustainable, and it was another major contributing factor in the decision to <a href="la.html#rebuild">rebuild the entire platform</a>. Our LCMS customers, some 200 instructional designers, were also eager for improvements. Years of providing end user support, conducting regular interviews, and attending countless team meetings helped us define the 3 or 4 major areas for improvement.</p>
 
-<p>The new LCMS was branded "Studio." The UI was aligned with the Delivery application, featuring a more visual and integrated authoring experience with functionality to help designers create more dynamic content. Just as importantly, the publishing workflow was made more robust with clearly defined stages.</p>
+<p>The new LCMS was branded "Studio." The UI was aligned with the Delivery application, featuring a more visual and integrated authoring experience with functionality to help instructional designers create more dynamic content. Just as importantly, the publishing workflow was made more robust with clearly defined stages.</p>
 
 <p><a href="../assets/img/publication_chain_concept.jpg" target="_blank"><img src="../assets/img/publication_chain_concept.jpg"></a></p>
 
-<p>Studio was built with similar technology as the legacy application (Ruby on Rails), but the front-end was built in React.js and the back-end employed a more service-based approach. The publication engine, for example, was built as a mini-app or service that integrated with Studio proper (the authoring app) via REST APIs. These same publication endpoints were used by the <a href="graphql.html">GraphQL API</a> to fetch data for display in the Delivery application. This api-driven approach increased efficiency and improved performance, ensuring that large publish database tables won't negatively impact our customers and the core authoring experience.</p>
+<p>The new publish flow applied a bit more rigor to the process, ensuring data integrity all the way down the line and a more manageable publish database at the end. Here are high fidelity mockups (based on my wireframes and user stories) showing how we translated this flow into the UI.</p>
+
+<p><a href="../assets/docs/publish-studio.pdf" target="_blank"><i class="far fa-images"></i>&nbsp;&nbsp;Album Publishing Workflow</a></p>
+
+<p>To accompany the new publishing UI, we introduced an Updates view in each album. Updates groups publishes into major and minor publishes. This helps all concerned users track the volume and frequency of content changes. Once again, these mockups were created based on my wireframes and documention.</p>
+
+<p><a href="../assets/docs/updates-studio.pdf" target="_blank"><i class="far fa-images"></i>&nbsp;&nbsp;Album Updates View</a></p>
+
+<p>One last note on the technology used in the new version. Studio itself, the application used by instructional designers to create content, was built with similar technology as the legacy application (Ruby on Rails). The front-end, however, employed React.js instead of vanilla JavaScript, and the back-end followed a more service-based approach. The publication engine, for example, was built as a mini-app or service that integrated with Studio proper via REST APIs. These same publication endpoints were used by the <a href="graphql.html">GraphQL API</a> to fetch data for display in the Delivery application. This api-driven approach increased efficiency and improved performance, ensuring that large publish database tables never negatively impact our customers and the core authoring experience.</p>
 
 <hr>
 

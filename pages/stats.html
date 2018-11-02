@@ -31,7 +31,7 @@
       <header>
         <a href="../index.html"><i class="fas fa-angle-left"></i>&nbsp;&nbsp;Back to portfolio</a>
 
-        <p><h1>Learning Analytics</h1></p>
+        <p><h1>Stats</h1></p>
 
         <p><img src="../assets/img/composite3.png" /></p>
 
@@ -40,7 +40,8 @@
         <br>• <a href="../assets/docs/LA-Dashboard-Authors.pdf" target="_blank">Dashboard for Authors wireframes</a>
         <br>• <a href="../assets/docs/Dashboard-Denominator-Problem.pdf" target="_blank">Dashboard Denominator Problem</a>
         <br>• <a href="../assets/img/stats-jtbd-mindmap.jpg" target="_blank">Jobs-to-be-Done mind map</a>
-        <br>• <a href="../assets/docs/Facilitator-Stats.pdf" target="_blank">Facilitator Stats  wireframes</a>
+        <br>• <a href="../assets/docs/Facilitator-Stats.pdf" target="_blank">Facilitator Stats wireframes</a>
+        <br>• <a href="../assets/docs/Thinking-about-Scoring.pdf" target="_blank">Thoughts about scoring</a>
       </p>
 
 
@@ -89,7 +90,11 @@
 
 <p>I used the mindmap to create requirements, user/job stories, and wireframes. Thinking about the metrics we wanted to provide at the end of a user's workflow actually caused us to rethink some of the core requirements of the Studio and Delivery applications. Specifically, we decided to simplify how we would demonstrate and measure learner comprehension and skill application. We introduced the notion of quizzes (comprehension) and assignments (application). Both would provide quantifiable measures that we could aggregate and report in Stats, but assignments in particular added a qualitative dimension by asking facilitators to rate learner submissions.</p>
 
-<p>We now had three solid measures that we could use to provide comprehensive stats on each class and individual learner. Here's a PDF set of wireframes I created based on my customer interviews and Jobs-to-be-Done mindmap:</p>
+<p>We now had three solid measures to provide comprehensive stats on each class and learner. Before we could begin development, however, we had to do some hard thinking about assignment scoring. Specifically, should we factor into the overall assignment score the actual rating applied by the facilitator AND how many assignment attempts the learner made to get a good score. In the end, we decided not to factor in the number of submissions. I created this document with the data scientist I hired and I include it here because it illustrates my data analysis process.</p>
+
+<p><a href="../assets/docs/Thinking-about-Scoring.pdf" target="_blank"><i class="far fa-file-alt"></i>&nbsp;&nbsp;Thoughts about assignment scoring</a></p>
+
+<p>Once that was sorted out (we decided not to factor in Application Learning Efficiency), it was time to start development, first of the importer and kdb+ queries, then the visual UI. Here's a PDF of UI wireframes I created based on my customer interviews and Jobs-to-be-Done mindmap:</p>
 
 <p><a href="../assets/docs/Facilitator-Stats.pdf" target="_blank"><i class="fas fa-drafting-compass"></i>&nbsp;&nbsp;Facilitator view of active class</a></p>
 

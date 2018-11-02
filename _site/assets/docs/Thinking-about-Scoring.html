@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Thinking about Scoring | awbishop.github.io</title>
+<meta name="generator" content="Jekyll v3.7.3" />
+<meta property="og:title" content="Thinking about Scoring" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="My portfolio" />
+<meta property="og:description" content="My portfolio" />
+<link rel="canonical" href="http://localhost:4000/assets/docs/Thinking-about-Scoring.html" />
+<meta property="og:url" content="http://localhost:4000/assets/docs/Thinking-about-Scoring.html" />
+<meta property="og:site_name" content="awbishop.github.io" />
+<script type="application/ld+json">
+{"description":"My portfolio","@type":"WebPage","url":"http://localhost:4000/assets/docs/Thinking-about-Scoring.html","headline":"Thinking about Scoring","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=b44bebae406115eccbe7516ba35a2dbab827db56">
+    <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1><a href="http://localhost:4000/">awbishop.github.io</a></h1>
+        
+        
+
+        <p>My portfolio</p>
+
+        
+        <p class="view"><a href="http://github.com/awbishop/awbishop.github.io">View the Project on GitHub <small>awbishop/awbishop.github.io</small></a></p>
+        
+
+        
+
+        
+      </header>
+      <section>
+
+      <h1 id="thinking-about-scoring">Thinking about Scoring</h1>
+
+<p>On this page I outline two proposals:</p>
+
+<ul>
+  <li>Application Learning Efficiency (Appl_EF) and Application Effectiveness (Appl_LE) - An approach that produces a single score for applications which combines the per step approvals and the overall facilitator assessment but is a bit awkward because it combines percents and what can be viewed as a letter grade.</li>
+  <li>Facilitator Assessment and Comprehension Score Concept - An approach based on the idea that we can get <strong>some</strong> comprehension information from Applications also.</li>
+</ul>
+
+<h2 id="application-learning-efficiency-appl_ef-and-application-effectiveness-appl_le-proposal">Application Learning Efficiency (Appl_EF) and Application Effectiveness (Appl_LE) Proposal</h2>
+
+<p>Lets abbreviate “Application Learning Efficiency” as “Appl_LE”, and “Application Effectiveness” as “Appl_EF”.</p>
+
+<ul>
+  <li>Appl_EF is the facilitator response encoded as 0=strongly disagree 1=disagree 2=agree 3=strongly agree.</li>
+  <li>Appl_LE is the discounted correctness avg(discount(attempts)) over all questions in the topic.</li>
+</ul>
+
+<p>Exactly what Appl_EF means is entirely determined by the text of the statement the facilitator is asked his opinion of.
+That I think has already been settled:</p>
+<pre>
+This application  provides evidence that this learner can effectively apply the concepts in their actual work.
+</pre>
+
+<p>Exactly what Appl_LE means is determined by the choice of discount function.
+If a learner takes 10 submissions to get a question right, I think that should be considered unreasonable
+In fact 5 is probably excessive, while 3 is probably reasonable. Maybe its acceptable to just take off 10%
+for each attempt.</p>
+<pre>
+ 1 attempt=&gt; 100%, 2 attempts=&gt; 90%, 3 attepts=&gt; 80%, 4 attempts=&gt; 70%, 5 attempts=&gt;50%
+ 6 attempt=&gt;  40%, 7 attempts=&gt; 30%  8 attempt=&gt; 20%, 9 attempts=&gt; 10%, 10 or more attempts=&gt;0%
+</pre>
+
+<p>But maybe you want something non-linear, for example.</p>
+<pre>
+ 1 attempt=&gt; 100%, 2 attempts=&gt;95%, 3 attempts=&gt;85%, 4 attempts=&gt;70% 5 attempts=&gt;50%
+ 6 attempt=&gt;  20%, 7 or more attempts 0%.
+</pre>
+
+<p>And maybe you want to be more severe:</p>
+<pre>
+ 1 attempt=&gt; 100%, 2 attempts=&gt;90%, 3 attempts=&gt;70%, 4 attempts=&gt;40% 5 or more attempts=&gt;0%
+</pre>
+
+<p>One you decide on the above the bigger question is: what do you want to DO with these 2 scores ?</p>
+
+<p>The current proposal is to combine them into a single “application score”.</p>
+
+<p>The difficulty with that is Appl_EF is a “letter grade” while Appl_LE is a percentage.
+We need to set up a table of equivilances:</p>
+<pre>
+ letter grade:    0 (weak)        1 (moderate)     2 (good)     3 (expert)
+ Appl_EF:     "strongly disagree",  "disagree"      "agree"    "strongly agree"
+ Appl_LE:          0-70%             70-80%         80-90%       90-100%
+</pre>
+
+<p>Then we combine the letter grades just by averaging their numerical values, and rounding back to an integer.
+This will give us an application score which is expressed as a letter grade.</p>
+
+<p>If you instead want an application score which is expressed as a percentage, 
+maybe you can use Appl_EF to modify Appl_LE according to rules something like:</p>
+<pre>
+  if Appl_EF="strongly agree"     combined score is the average of Appl_LE and 100%
+  if Appl_EF="agree"              combined score is the same as Appl_LE
+  if Appl_EF="disagree"           combined score is 80% of Appl_LE
+  if Appl_EF="strongly disagree"  combined score is 50% of Appl_LE
+</pre>
+
+<p>So, let’s take a sample problem: A learner, Jen, has gone though the two applications in Album A, Application A1 and A2. She got all 5 steps of A1 right on the first go round. With A1, she got the first two steps of the 10 steps in A2 wrong the first time and the rest correct and on the second iteration she got all but the first step right and on the third she had them all right. Lets also say that the facilitator’s Likert response on A1 was “diagree”, but that on the third attempt, his response on A2 was “strongly agree”.</p>
+
+<p>I will use the last discount function above in this example.</p>
+
+<p>So, one would score for her Application A1 as follows:</p>
+
+<p>Since she got all 5 steps approved on the first attempt she has Appl_LE= 5/5= 100%, but she only got Appl_EF=1.
+If we go with letter grades, she has avg(3,1)=2, a grade of “good” over all.
+If we go with percentages, her 100% gets reduced to 80% following the above rules.</p>
+
+<p>And A2 as follows:</p>
+
+<ul>
+  <li>Here she has all but 2 steps right on the first attempt +8.00</li>
+  <li>She got one of the remaining on the second attempt +0.90</li>
+  <li>and one on the third attempt +0.70, so Appl_LE = 9.6/10= 96%</li>
+  <li>Moreover she has Appl_EF=3 ie “expert”.</li>
+  <li>for a letter grade, appleLE is in also “expert” range so overall she scores “expert”</li>
+  <li>for a percentage we average that 96% with 100% producing 98%.</li>
+</ul>
+
+<p>One might then agg Jen into her class as follows:</p>
+
+<ul>
+  <li>First we have to give her a score on the whole album, combining Application A1 and A2.</li>
+  <li>Since Appl_EF is only provided per-topic, we simply average her scores on each topic (assuming they are weighted equally).</li>
+  <li>For a letter grade  “good” + “expert” /2 = 2+3/2 = 2.5 (do you round up or down ?)</li>
+  <li>For a percentage  (80% + 98%)/2 = 89%</li>
+</ul>
+
+<p>To “aggregate her into her class” we just include her score of 89% in the average along with her class mates.
+We can also provide a class average on each topic independently.</p>
+
+<h2 id="facilitator-assessment-and-comprehension-score-concept">Facilitator Assessment and Comprehension Score Concept</h2>
+
+<p>Application Effectiveness (the facilitator Likert response) should stand on its own as “application score”
+while Application Learning Efficiency should either be a component of “comprehension score” or also stand as an independent score.</p>
+
+<p>Then you get a comprehension score which is a percentage and an application score which is a “letter grade”
+and no arbitrary conversion are necessary.</p>
+
+<p>Moreover “Application Learning Efficiency” is a straightforward generalization of comprehension score to application topics.</p>
+
+<p>In each case the learner gets a score (bet 0-100%) on each question and these are averaged to produce a score on the whole topic.</p>
+
+<p>A comprehension topic may only be submitted once, and the score on each question is EITHER 100% or 0% (correct or not).</p>
+
+<p>An application topic must be submitted as many times as necessary for all <strong>steps</strong> to be considered correct, but the score on each question decreases with the number of submissions.</p>
+
+<p>In each case it is about the learner’s ability to read and digest the learning materials and the questions and come back with an appropriate response.</p>
+
+<p>The Application Effectiveness is different. It a subjective human opinion as to how well the learner would be able to apply the concepts in the real world as opposed to a test-taking environment. It is worth considering if it is more useful to combine the scores that are more structurally similar and keep Application Effectiveness separate.</p>
+
+<pre>
+  completion score= (learning_topics_viewed + comprehension_topics_submitted + application_topics_approved)/ all_topics_published
+  comprehension score for comprehension topics=  sum(correct_each_question)/questions_published
+  comprehension score for application topics= sum(discount(attempts_each_step))/application_steps_published 
+</pre>
+
+<p>By analogy with “completion score” which includes all 3 type of topics, we might define “comprehension score”
+to include both comprehension topics and application topics.</p>
+
+<p>This could be done just by averaging the two comprehension scores above, which would weight topics equally,
+or by summing the numerators and denominators separately and then dividing, which would weight the questions 
+and steps equally.</p>
+
+<p>We can then add a new score for the Likert response, which unlike the others is a letter grade.
+I tend to like the name “facilitator assessment” or “assessment score” for this.</p>
+
+<pre>
+ facilitator assessment= round(sum(facilitator_response_each_application)/application_topics_published).
+</pre>
+
+<p>To rework the example of Jen above,
+would score for her A1 Application as follows:</p>
+
+<p>comprehension= appl_LE= 100%
+application=   Appl_EF= 1 (moderate).</p>
+
+<p>And A2 as follows:</p>
+
+<p>comprehension= appl_LE= 96%
+application=   Appl_EF = 3 (expert)</p>
+
+<p>One might then aggregate Jen into her class as follows:</p>
+
+<ul>
+  <li>First we have to give her a score on the whole album, combining Application A1 and A2.</li>
+  <li>comprehension is aggregated per-question (ratio of avgs) (5+9.6)/(5+10) = 14.6/15 = 99.3%</li>
+  <li>application is aggregated per-topic   (1 [moderate] + 3 [expert])/2 = 2 [good]</li>
+</ul>
+
+<p>To “agg her into her class” would just average Jen’s 99.3 in with the comprehension scores of her classmates
+and average Jen’s 2=[good] in with the application scores of her classmates and round to an integer.</p>
+
+
+      </section>
+      <footer>
+        
+        <p>This project is maintained by <a href="http://github.com/awbishop">awbishop</a></p>
+        
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="/assets/js/scale.fix.js"></script>
+    
+  </body>
+</html>
