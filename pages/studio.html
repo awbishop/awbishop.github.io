@@ -33,7 +33,7 @@
 
         <p><h1>Studio</h1></p>
 
-        <p><div style="position: relative; padding-bottom: 62.5%; height: 0;"><script src="https://fast.wistia.com/embed/medias/0pmpquspn4.jsonp" async></script><script src="https://fast.wistia.com/assets/external/E-v1.js" async></script><div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><div class="wistia_embed wistia_async_0pmpquspn4 videoFoam=true" style="height:100%;position:relative;width:100%"><div class="wistia_swatch" style="height:100%;left:0;opacity:0;overflow:hidden;position:absolute;top:0;transition:opacity 200ms;width:100%;"><img src="https://fast.wistia.com/embed/medias/0pmpquspn4/swatch" style="filter:blur(5px);height:100%;object-fit:contain;width:100%;" alt="" onload="this.parentNode.style.opacity=1;" /></div></div></div></div></div></p>
+        <p><div style="position: relative; padding-bottom: 55%; height: 0;"><script src="https://fast.wistia.com/embed/medias/0pmpquspn4.jsonp" async></script><script src="https://fast.wistia.com/assets/external/E-v1.js" async></script><div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><div class="wistia_embed wistia_async_0pmpquspn4 videoFoam=true" style="height:100%;position:relative;width:100%"><div class="wistia_swatch" style="height:100%;left:0;opacity:0;overflow:hidden;position:absolute;top:0;transition:opacity 200ms;width:100%;"><img src="https://fast.wistia.com/embed/medias/0pmpquspn4/swatch" style="filter:blur(5px);height:100%;object-fit:contain;width:100%;" alt="" onload="this.parentNode.style.opacity=1;" /></div></div></div></div></div></p>
 
         <p>A brief video tour of the Studio application.</p>
 
@@ -76,17 +76,17 @@
 
 <p><a href="../assets/docs/publish-studio.pdf" target="_blank"><i class="far fa-images"></i>&nbsp;&nbsp;Album Publishing Workflow</a></p>
 
-<p>To accompany the new publishing UI, we introduced an Updates view in each album. Updates groups publishes into major and minor publishes. This helps all concerned users track the volume and frequency of content changes. Once again, these mockups were created based on my wireframes and documention.</p>
+<p>To accompany the new publishing UI, we introduced an Updates view in each album. The Updates view groups publishes into major and minor publishes. This helps all concerned users track the volume and frequency of content changes. Once again, these mockups were created based on my wireframes and documention.</p>
 
 <p><a href="../assets/docs/updates-studio.pdf" target="_blank"><i class="far fa-images"></i>&nbsp;&nbsp;Album Updates View</a></p>
 
-<p>To rival commercial LCMSs...importance of version control...</p>
+<p>The capabilities in the new Studio application — including smart content reuse, real time collaboration, quizzes and assignments, and a robust publishing workflow — rival those of other tools and means our product will have a competitive advantage when we explore a commercial offering in 2019.</p>
 
-<p>One last note on the technology used in the new version. Studio itself, the application used by instructional designers to create content, was built with similar technology as the legacy application (Ruby on Rails). The front-end, however, employed React.js instead of vanilla JavaScript, and the back-end followed a more service-based approach. The publication engine, for example, was built as a mini-app or service that integrated with Studio proper via REST APIs. These same publication endpoints were used by the <a href="graphql.html">GraphQL API</a> to fetch data for display in the Delivery application. This api-driven approach increased efficiency and improved performance, ensuring that large publish database tables never negatively impact our customers and the core authoring experience.</p>
+<!--<p>One last note on the technology used in the new version. Studio itself, the application used by instructional designers to create content, was built with similar technology as the legacy application (Ruby on Rails). The front-end, however, employed React.js instead of vanilla JavaScript, and the back-end followed a more service-based approach. The publication engine, for example, was built as a mini-app or service that integrated with Studio proper via REST APIs. These same publication endpoints were used by the <a href="graphql.html">GraphQL API</a> to fetch data for display in the Delivery application. This api-driven approach increased efficiency and improved performance, ensuring that large publish database tables never negatively impact our customers and the core authoring experience.</p>-->
 
 <hr>
 
-<p>For those interested, here is our technology stack for version 6 of the Learning Album platform:</p>
+<p>Here is the full technology stack for the latest Studio application:</p>
 
 <p>Docker 18+, Ruby 2.3/2.4, MySQL 5.7+, PostgreSQL 10+, Redis, Solr, ImageMagick, Passenger, Capistrano, AWS EC2, AWS RDS (MySQL and PostgreSQL), AWS Lambda, AWS S3, AWS SES, AWS SNS, AWS SQS, React.js, New Relic.</p>
 
