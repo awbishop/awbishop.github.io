@@ -128,9 +128,15 @@
 
 .highlight { background-color: #f8f8f8; }
 
-body { background-color: #fff; padding: 50px; font: 14px/1.5 "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; color: #727272; font-weight: 400; }
+body { background-color: #FBFBFB; padding: 50px; font: 14px/1.5 "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; color: #727272; font-weight: 400; }
 
-h1, h2, h3, h4, h5, h6 { color: #222; margin: 0 0 20px; }
+h1, h2 { color: #222; margin: 0 0 20px; }
+
+h3.basic { margin: 20px 0 20px; }
+
+h3.project { margin: 40px 0 20px; }
+
+h4, h5, h6 { margin: 20px 0 20px; }
 
 p, ul, ol, table, pre, dl { margin: 0 0 20px; }
 
@@ -138,13 +144,11 @@ h1, h2, h3 { line-height: 1.1; }
 
 h1 { font-size: 28px; }
 
-h2 { color: #393939; }
+h2, h3, h4, h5, h6 { color: #393939; }
 
-h3, h4, h5, h6 { color: #494949; }
+a { color: #2796e4; text-decoration: none; font-weight: 500; }
 
-a { color: #267CB9; text-decoration: none; }
-
-a:hover, a:focus { color: #069; font-weight: bold; }
+a:hover, a:focus { color: #1475b9; font-weight: 500; }
 
 a small { font-size: 11px; color: #777; margin-top: -0.3em; display: block; }
 
@@ -160,7 +164,9 @@ pre { padding: 8px 15px; background: #f8f8f8; border-radius: 5px; border: 1px so
 
 table { width: 100%; border-collapse: collapse; }
 
-th, td { text-align: left; padding: 5px 10px; border-bottom: 1px solid #e5e5e5; }
+th, td { text-align: left; padding: 6px 8px; }
+
+/* th, td { text-align: left; padding: 5px 10px; border-bottom: 1px solid #e5e5e5; }*/
 
 dt { color: #444; font-weight: 700; }
 
